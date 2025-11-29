@@ -64,15 +64,15 @@ export default function Hero() {
                 >
                     <div className="absolute top-0 left-0 w-full h-2 bg-primary/20" />
 
-                    <span className="text-sm text-gray-400 mb-6 font-medium tracking-widest uppercase">Today&apos;s Verse</span>
+                    <span className="text-sm text-gray-400 mb-6 font-medium tracking-widest uppercase">Covenant</span>
 
-                    <h3 className="text-2xl md:text-3xl font-serif text-gray-800 leading-relaxed mb-6">
-                        &quot;너희는 마음에 근심하지 말라<br />
-                        하나님을 믿으니<br />
-                        또 나를 믿으라&quot;
+                    <h3 className="text-xl md:text-2xl font-serif text-gray-800 leading-relaxed mb-6">
+                        &quot;나는 그들의 하나님이 되고<br />
+                        그들은 내 백성이<br />
+                        될 것이라&quot;
                     </h3>
 
-                    <p className="text-sm text-gray-500 font-medium">요한복음 14:1</p>
+                    <p className="text-sm text-gray-500 font-medium">예레미야 31:33</p>
 
                     <div className="absolute bottom-8 w-12 h-1 bg-gray-200 rounded-full" />
                 </div>
@@ -81,16 +81,16 @@ export default function Hero() {
                 <div ref={textRef} className="text-center">
                     <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
                         <div className="overflow-hidden">
-                            {splitText("오늘 우리의")}
+                            {splitText("베리트")}
                         </div>
                         <div className="overflow-hidden text-primary">
-                            {splitText("성장을 시작하세요")}
+                            {splitText("하나님과의 약속")}
                         </div>
                     </h1>
 
                     <p className="hero-sub text-lg md:text-xl text-gray-600 max-w-xl mx-auto font-light leading-relaxed">
-                        하루 한 장의 말씀 카드, 그리고 함께 나누는 깊은 묵상.<br />
-                        말씀 동행이 당신의 영적 여정을 함께합니다.
+                        변하지 않는 하나님의 언약 안에서 참된 평안을 누리세요.<br />
+                        매일의 말씀이 당신의 삶을 거룩한 약속으로 인도합니다.
                     </p>
                 </div>
             </div>

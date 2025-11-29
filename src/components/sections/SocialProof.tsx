@@ -9,21 +9,21 @@ gsap.registerPlugin(ScrollTrigger);
 
 const reviews = [
     {
-        name: "김민지",
-        role: "직장인 (3년차)",
-        content: "출근길 지하철에서 듣는 5분 묵상이 제 하루를 완전히 바꿔놓았습니다. 회사에서의 스트레스를 이길 힘을 얻어요.",
+        name: "김은혜",
+        role: "청년부 리더",
+        content: "매일 아침 도착하는 약속의 말씀이 제 하루를 지탱해줍니다. 흔들릴 때마다 하나님과의 언약을 다시 기억하게 되었어요.",
         rating: 5
     },
     {
-        name: "이준호",
-        role: "사업가",
-        content: "바쁘다는 핑계로 말씀을 멀리했었는데, 이 앱 덕분에 다시 하나님과 가까워진 느낌입니다. 오디오 퀄리티가 정말 좋아요.",
+        name: "최성민",
+        role: "직장인",
+        content: "바쁜 일상 속에서 잊고 지냈던 하나님의 약속들을 다시 붙잡게 되었습니다. 베리트는 제 신앙의 닻과 같습니다.",
         rating: 5
     },
     {
-        name: "박서연",
+        name: "이수진",
         role: "주부",
-        content: "육아로 지친 일상 속에서 잠시나마 누리는 저만의 안식처입니다. 큐레이션된 말씀이 매번 제 상황에 딱 맞아서 놀라워요.",
+        content: "공동체와 함께 기도 제목을 나누며 혼자가 아님을 느낍니다. 서로의 약속을 지켜주는 믿음의 동역자들을 만나 감사합니다.",
         rating: 5
     }
 ];
@@ -72,10 +72,10 @@ export default function SocialProof() {
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
                     <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                        이미 많은 분들이 평안을 찾았습니다
+                        약속 안에서 변화된 삶의 이야기
                     </h2>
                     <p className="text-gray-600 text-lg">
-                        사용자들의 진솔한 이야기를 들어보세요.
+                        베리트와 함께하며 회복된 은혜를 나눕니다.
                     </p>
                 </div>
 

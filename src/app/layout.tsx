@@ -8,8 +8,28 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Soul's Peace - Inner Peace & Sanctuary",
-  description: "Find your inner peace with deep meditation and scripture reading.",
+  metadataBase: new URL('https://berit.app'),
+  title: "Berit - God's Promise",
+  description: "Remember God's covenant and find peace in His promises.",
+  icons: {
+    icon: '/icon.svg',
+  },
+  openGraph: {
+    title: "Berit - God's Promise",
+    description: "Remember God's covenant and find peace in His promises.",
+    url: 'https://berit.app',
+    siteName: 'Berit',
+    images: [
+      {
+        url: '/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Berit - God\'s Promise',
+      },
+    ],
+    locale: 'ko_KR',
+    type: 'website',
+  },
 };
 
 export default function RootLayout({

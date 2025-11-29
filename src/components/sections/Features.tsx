@@ -10,22 +10,22 @@ gsap.registerPlugin(ScrollTrigger);
 
 const features = [
     {
-        icon: Headphones,
-        title: "5분 오디오 묵상",
-        description: "출근길, 잠들기 전 5분. 전문 성우의 편안한 목소리로 듣는 깊이 있는 묵상 콘텐츠를 제공합니다.",
-        image: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?q=80&w=2664&auto=format&fit=crop"
-    },
-    {
         icon: Sparkles,
-        title: "맞춤형 큐레이션",
-        description: "현재 나의 감정 상태와 상황에 맞는 성경 구절과 묵상을 AI가 추천해드립니다.",
+        title: "매일의 약속",
+        description: "매일 아침, 당신을 향한 하나님의 약속이 담긴 말씀 카드가 도착합니다. 하루를 말씀으로 시작하며 언약을 기억하세요.",
         image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2673&auto=format&fit=crop"
     },
     {
         icon: BookOpen,
-        title: "깊이 있는 성경 읽기",
-        description: "단순한 통독을 넘어, 배경 지식과 해설이 함께하는 풍성한 성경 읽기를 경험해보세요.",
+        title: "언약의 기록",
+        description: "하나님께서 당신의 삶에 행하신 일들을 기록하세요. 감사의 제목과 기도의 응답을 적으며 신실하신 하나님을 경험합니다.",
         image: "https://images.unsplash.com/photo-1491841550275-ad7854e35ca6?q=80&w=2574&auto=format&fit=crop"
+    },
+    {
+        icon: Headphones,
+        title: "믿음의 공동체",
+        description: "서로의 기도 제목을 나누고 함께 중보하며 믿음의 끈을 이어갑니다. 혼자가 아닌 함께 걷는 언약의 여정입니다.",
+        image: "https://images.unsplash.com/photo-1519834785169-98be25ec3f84?q=80&w=2664&auto=format&fit=crop"
     }
 ];
 
@@ -99,9 +99,9 @@ export default function Features() {
         <section ref={containerRef} className="py-24 bg-[#FDFBF7]">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-20">
-                    <span className="text-primary font-medium tracking-wider uppercase text-sm">Solution</span>
+                    <span className="text-primary font-medium tracking-wider uppercase text-sm">Features</span>
                     <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2">
-                        당신의 영적 성장을 돕는 3가지 길
+                        하나님과의 약속을 지키는 방법
                     </h2>
                 </div>
 
