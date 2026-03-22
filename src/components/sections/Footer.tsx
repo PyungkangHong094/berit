@@ -10,10 +10,11 @@ export default function Footer() {
                         <p className="text-sm">하나님과의 영원한 약속을 기억합니다</p>
                     </div>
 
-                    <div className="flex gap-8 text-sm">
-                        <Link href="#" className="hover:text-white transition-colors">이용약관</Link>
-                        <Link href="#" className="hover:text-white transition-colors">개인정보처리방침</Link>
-
+                    <div className="flex flex-wrap gap-6 text-sm">
+                        <Link href="/terms" className="hover:text-white transition-colors">이용약관</Link>
+                        <Link href="/privacy" className="hover:text-white transition-colors">개인정보처리방침</Link>
+                        <Link href="/support" className="hover:text-white transition-colors">고객지원</Link>
+                        <Link href="/delete-account" className="hover:text-white transition-colors">계정삭제</Link>
                     </div>
                 </div>
 
