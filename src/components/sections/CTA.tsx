@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, TreePine, Target, Users, BookOpen } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -55,28 +55,33 @@ export default function CTA() {
 
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
-                    하나님과의 약속, 지금 시작하세요
+                    하나님과의 약속,<br className="md:hidden" /> 지금 시작하세요
                 </h2>
-                <p className="text-blue-100 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
-                    매일의 말씀과 기도로 채워지는 거룩한 습관.<br />
+                <p className="text-white/70 text-lg md:text-xl mb-10 max-w-2xl mx-auto">
+                    매일의 기도와 묵상으로 자라나는 믿음 나무.<br />
                     베리트가 당신의 영적 여정을 함께합니다.
                 </p>
 
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4 mb-12">
-                    {["매일의 말씀", "기도 공동체", "언약 일기"].map((item, i) => (
+                <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+                    {[
+                        { icon: TreePine, label: "믿음 나무" },
+                        { icon: BookOpen, label: "매일 묵상" },
+                        { icon: Target, label: "기도 챌린지" },
+                        { icon: Users, label: "동행 파트너" },
+                    ].map((item, i) => (
                         <div key={i} className="flex items-center gap-2 text-white bg-white/10 px-4 py-2 rounded-full backdrop-blur-sm">
-                            <Check size={16} />
-                            <span className="text-sm font-medium">{item}</span>
+                            <item.icon size={16} />
+                            <span className="text-sm font-medium">{item.label}</span>
                         </div>
                     ))}
                 </div>
 
-                <button ref={buttonRef} className="bg-secondary text-white hover:bg-yellow-500 px-10 py-5 rounded-full text-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto">
+                <button ref={buttonRef} className="bg-accent text-white hover:bg-accent/90 px-10 py-5 rounded-full text-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto cursor-pointer">
                     베리트 시작하기
                     <ArrowRight className="w-6 h-6" />
                 </button>
 
-                <p className="mt-6 text-blue-200 text-sm">
+                <p className="mt-6 text-white/50 text-sm">
                     지금 다운로드하고 은혜의 여정에 동참하세요.
                 </p>
             </div>

@@ -11,21 +11,21 @@ const reviews = [
     {
         name: "김은혜",
         role: "청년부 리더",
-        content: "매일 아침 도착하는 약속의 말씀이 제 하루를 지탱해줍니다. 흔들릴 때마다 하나님과의 언약을 다시 기억하게 되었어요.",
-        rating: 5
+        content: "매일 아침 기도 챌린지를 시작하면서 나무가 자라는 걸 보는 게 큰 기쁨이에요. 100일 챌린지 완료했을 때의 감동은 잊을 수 없습니다.",
+        rating: 5,
     },
     {
         name: "최성민",
         role: "직장인",
-        content: "바쁜 일상 속에서 잊고 지냈던 하나님의 약속들을 다시 붙잡게 되었습니다. 베리트는 제 신앙의 닻과 같습니다.",
-        rating: 5
+        content: "아내와 함께 커플 모드로 사용하고 있어요. 서로의 기도를 캘린더에서 확인하며 함께 동행하는 느낌이 정말 좋습니다. 바쁜 일상 속 닻이 되어줍니다.",
+        rating: 5,
     },
     {
         name: "이수진",
         role: "주부",
-        content: "공동체와 함께 기도 제목을 나누며 혼자가 아님을 느낍니다. 서로의 약속을 지켜주는 믿음의 동역자들을 만나 감사합니다.",
-        rating: 5
-    }
+        content: "기도할 때 흘러나오는 찬양 피아노 소리가 마음을 차분하게 해줘요. 묵상 노트에 감사 제목을 적다 보면 은혜가 넘칩니다.",
+        rating: 5,
+    },
 ];
 
 export default function SocialProof() {
@@ -71,10 +71,11 @@ export default function SocialProof() {
         <section ref={containerRef} className="py-24 bg-white">
             <div className="container mx-auto px-6">
                 <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                    <span className="text-primary font-medium tracking-wider uppercase text-sm">Reviews</span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mt-2 mb-4">
                         약속 안에서 변화된 삶의 이야기
                     </h2>
-                    <p className="text-gray-600 text-lg">
+                    <p className="text-foreground/60 text-lg">
                         베리트와 함께하며 회복된 은혜를 나눕니다.
                     </p>
                 </div>
@@ -83,23 +84,23 @@ export default function SocialProof() {
                     {reviews.map((review, index) => (
                         <div
                             key={index}
-                            className="review-card p-8 bg-gray-50 rounded-2xl border border-gray-100 relative"
+                            className="review-card p-8 bg-background rounded-2xl border border-gray-100 relative"
                         >
-                            <div className="flex gap-1 text-yellow-400 mb-4">
+                            <div className="flex gap-1 text-accent mb-4">
                                 {[...Array(review.rating)].map((_, i) => (
-                                    <Star key={i} size={20} fill="currentColor" />
+                                    <Star key={i} size={18} fill="currentColor" />
                                 ))}
                             </div>
-                            <p className="text-gray-700 mb-6 leading-relaxed">
+                            <p className="text-foreground/70 mb-6 leading-relaxed">
                                 &quot;{review.content}&quot;
                             </p>
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary font-bold">
+                                <div className="w-10 h-10 rounded-full bg-secondary/40 flex items-center justify-center text-foreground font-bold text-sm">
                                     {review.name[0]}
                                 </div>
                                 <div>
                                     <div className="font-bold text-foreground">{review.name}</div>
-                                    <div className="text-sm text-gray-500">{review.role}</div>
+                                    <div className="text-sm text-foreground/50">{review.role}</div>
                                 </div>
                             </div>
                         </div>

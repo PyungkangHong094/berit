@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  /* Calm Blue */
-  --primary: #4A90E2;
+  /* Blue-Gray (depth & peace) */
+  --primary: #5B7F8A;
   /* Warm Ivory */
   --background: #FDFCF7;
-  /* Deep Forest Green */
-  --accent: #2C5F2D;
-  /* Soft Black */
-  --foreground: #1A1A1A;
-  /* Soft Gold */
-  --secondary: #D4AF37;
+  /* Coral/Peach (warmth) */
+  --accent: #EF9877;
+  /* Natural Brown (calm text) */
+  --foreground: #71665A;
+  /* Warm Pink (love/comfort) */
+  --secondary: #FEBAAC;
+  /* Purple (stamp) */
+  --stamp: #C4B2F1;
+  /* Green (growth) */
+  --growth: #AED581;
 }
 
 @theme inline {
@@ -19,6 +23,8 @@
   --color-primary: var(--primary);
   --color-accent: var(--accent);
   --color-secondary: var(--secondary);
+  --color-stamp: var(--stamp);
+  --color-growth: var(--growth);
   --font-sans: var(--font-outfit);
 }
 
