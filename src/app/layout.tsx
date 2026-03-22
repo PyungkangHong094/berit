@@ -9,26 +9,37 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://berit.app'),
-  title: "Berit - God's Promise",
-  description: "Remember God's covenant and find peace in His promises.",
+  title: "베리트(Berit) - 커플 기도 앱",
+  description: "하나님과의 약속을 매일 기억하며, 사랑하는 사람과 함께 기도로 하루를 시작하세요. 매일의 묵상과 기도로 자라나는 믿음 나무.",
   icons: {
-    icon: '/icon.svg',
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-48x48.png', sizes: '48x48', type: 'image/png' },
+    ],
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
-    title: "Berit - God's Promise",
-    description: "Remember God's covenant and find peace in His promises.",
+    title: "베리트(Berit) - 커플 기도 앱",
+    description: "하나님과의 약속을 매일 기억하며, 사랑하는 사람과 함께 기도로 하루를 시작하세요.",
     url: 'https://berit.app',
-    siteName: 'Berit',
+    siteName: '베리트 Berit',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Berit - God\'s Promise',
+        alt: '베리트 - 커플 기도 앱',
       },
     ],
     locale: 'ko_KR',
     type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: "베리트(Berit) - 커플 기도 앱",
+    description: "하나님과의 약속을 매일 기억하며, 사랑하는 사람과 함께 기도로 하루를 시작하세요.",
+    images: ['/og-image.jpg'],
   },
 };
 
