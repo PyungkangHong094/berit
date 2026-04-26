@@ -8,7 +8,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://berit.app'),
+  metadataBase: new URL('https://berit.life'),
   title: "베리트(Berit) - 커플 기도 앱",
   description: "하나님과의 약속을 매일 기억하며, 사랑하는 사람과 함께 기도로 하루를 시작하세요. 매일의 묵상과 기도로 자라나는 믿음 나무.",
   icons: {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "베리트(Berit) - 커플 기도 앱",
     description: "하나님과의 약속을 매일 기억하며, 사랑하는 사람과 함께 기도로 하루를 시작하세요.",
-    url: 'https://berit.app',
+    url: 'https://berit.life',
     siteName: '베리트 Berit',
     images: [
       {
