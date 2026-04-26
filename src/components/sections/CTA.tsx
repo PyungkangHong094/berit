@@ -3,24 +3,25 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowRight, TreePine, Target, Users, BookOpen } from "lucide-react";
+import { TreePine, Target, Users, BookOpen } from "lucide-react";
+import DownloadButtons from "@/components/DownloadButtons";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function CTA() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLButtonElement>(null);
+    const downloadRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
             const mm = gsap.matchMedia();
 
             mm.add("(min-width: 769px)", () => {
-                gsap.from(buttonRef.current, {
-                    scale: 0.9,
+                gsap.from(downloadRef.current, {
+                    scale: 0.95,
                     opacity: 0,
                     duration: 0.8,
-                    ease: "back.out(1.7)",
+                    ease: "back.out(1.5)",
                     scrollTrigger: {
                         trigger: containerRef.current,
                         start: "top 70%",
@@ -29,7 +30,7 @@ export default function CTA() {
             });
 
             mm.add("(max-width: 768px)", () => {
-                gsap.from(buttonRef.current, {
+                gsap.from(downloadRef.current, {
                     y: 20,
                     opacity: 0,
                     duration: 0.8,
@@ -62,7 +63,7 @@ export default function CTA() {
                     베리트가 당신의 영적 여정을 함께합니다.
                 </p>
 
-                <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+                <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
                     {[
                         { icon: TreePine, label: "믿음 나무" },
                         { icon: BookOpen, label: "매일 묵상" },
@@ -76,10 +77,9 @@ export default function CTA() {
                     ))}
                 </div>
 
-                <button ref={buttonRef} className="bg-accent text-white hover:bg-accent/90 px-10 py-5 rounded-full text-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl flex items-center gap-2 mx-auto cursor-pointer">
-                    베리트 시작하기
-                    <ArrowRight className="w-6 h-6" />
-                </button>
+                <div ref={downloadRef}>
+                    <DownloadButtons theme="dark" />
+                </div>
 
                 <p className="mt-6 text-white/50 text-sm">
                     지금 다운로드하고 은혜의 여정에 동참하세요.

@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { TreePine, Heart } from "lucide-react";
+import DownloadButtons from "@/components/DownloadButtons";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -34,11 +35,16 @@ export default function Hero() {
                     opacity: 0,
                     duration: 1.0,
                 }, "-=0.8")
+                .from(".hero-download", {
+                    y: 20,
+                    opacity: 0,
+                    duration: 0.8,
+                }, "-=0.6")
                 .from(".hero-badges", {
                     y: 15,
                     opacity: 0,
                     duration: 0.8,
-                }, "-=0.6");
+                }, "-=0.5");
 
         }, containerRef);
 
@@ -103,6 +109,10 @@ export default function Hero() {
                         매일의 기도와 묵상으로 자라나는 나의 믿음 나무.<br />
                         하나님의 언약 안에서 참된 평안을 누리세요.
                     </p>
+
+                    <div className="hero-download mb-8">
+                        <DownloadButtons theme="light" />
+                    </div>
 
                     <div className="hero-badges flex flex-wrap items-center justify-center gap-3">
                         {[
