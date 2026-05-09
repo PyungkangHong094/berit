@@ -1,7 +1,7 @@
 export type Platform = "ios" | "android" | "bot" | "desktop";
 
 const BOT_PATTERN =
-    /facebookexternalhit|Twitterbot|Slackbot|KAKAOTALK|kakaolink|LinkedInBot|WhatsApp|TelegramBot|Discordbot|Googlebot|bingbot|Applebot|Pinterestbot|redditbot|YandexBot|DuckDuckBot|Baiduspider|embedly|Iframely|SkypeUriPreview|Naver|Daum/i;
+    /facebookexternalhit|Twitterbot|Slackbot-LinkExpanding|Slack-ImgProxy|kakaotalk-scrap|LinkedInBot|WhatsApp|TelegramBot|Discordbot|Googlebot|bingbot|Applebot|Pinterestbot|redditbot|YandexBot|DuckDuckBot|Baiduspider|embedly|Iframely|SkypeUriPreview|Yeti|Daumoa/i;
 
 export function detectPlatform(userAgent: string | null | undefined): Platform {
     if (!userAgent) return "desktop";
