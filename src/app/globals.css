@@ -1,31 +1,80 @@
 @import "tailwindcss";
 
 :root {
-  /* Blue-Gray (depth & peace) */
-  --primary: #5B7F8A;
-  /* Warm Ivory */
+  /* Warm Ivory — page background */
   --background: #FDFCF7;
-  /* Coral/Peach (warmth) */
+  /* Card/section background — one shade darker ivory */
+  --surface: #F4F1E8;
+  /* Headlines, nav text (contrast >= 12:1) */
+  --ink: #2F2A23;
+  /* Body text — darkened from app's #71665A for >= 4.5:1 on --background */
+  --foreground: #5C5348;
+  /* Blue-Gray (depth & peace) — main accent, button background */
+  --primary: #5B7F8A;
+  /* Coral/Peach (warmth) — decorative only, never text color */
   --accent: #EF9877;
-  /* Natural Brown (calm text) */
-  --foreground: #71665A;
-  /* Warm Pink (love/comfort) */
+  /* Warm Pink (love/comfort) — decorative */
   --secondary: #FEBAAC;
-  /* Purple (stamp) */
+  /* Purple (stamp) — decorative */
   --stamp: #C4B2F1;
-  /* Green (growth) */
+  /* Green (growth) — decorative */
   --growth: #AED581;
+
+  /* Illustration-only brand colors — faith tree motif reproduction
+     (from the app home screen). Used inside decorative inline SVG only,
+     never for UI text/background. */
+  --tree-deep: #2E4A34;
+  --tree-mid: #3B5C43;
+  --tree-light: #4B6E53;
+  --tree-trunk: #6E4A2E;
+  --apple-red: #E0533C;
+
+  /* Hairline used for list/section dividers and card borders */
+  --line: #E5E0D5;
+  /* Muted meta text (읽는 시간, 버전) — darker than --foreground for contrast */
+  --muted: #6B6155;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-accent: var(--accent);
   --color-secondary: var(--secondary);
   --color-stamp: var(--stamp);
   --color-growth: var(--growth);
-  --font-sans: var(--font-outfit);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --font-sans: var(--font-seoul-alrim);
+  --font-memoment: var(--font-memoment);
+}
+
+/* Handwritten accent (MemomentKkukkukk) — eyebrows, decorative labels only.
+   Never body copy (low legibility). */
+.font-hand {
+  font-family: var(--font-memoment);
+}
+
+/* Highlighter/marker anchor for heading emphasis — replaces hand-drawn SVG
+   underlines. Coral accent at ~40-55% opacity covers only the lower ~48% of
+   the text (형광펜 밑줄), with the ink fading toward the right edge for a real
+   pen feel. Text must stay --ink: on the blended peach the ink keeps ~9:1
+   contrast, well above AA. box-decoration-break clones the band across wraps. */
+.marker-highlight {
+  background-image: linear-gradient(
+    to right,
+    color-mix(in srgb, var(--accent) 55%, transparent),
+    color-mix(in srgb, var(--accent) 40%, transparent)
+  );
+  background-repeat: no-repeat;
+  background-position: 0 92%;
+  background-size: 100% 48%;
+  padding: 0 0.15em;
+  border-radius: 0.12em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
 }
 
 body {
@@ -33,6 +82,25 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   overflow-x: hidden;
+}
+
+/* Accessible focus ring for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Respect reduced-motion: disable decorative motion & smooth scroll */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 /* Lenis Smooth Scroll */

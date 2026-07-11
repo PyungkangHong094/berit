@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
-import { Outfit } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
+const seoulAlrim = localFont({
+  src: [
+    { path: "../fonts/SeoulAlrim-Medium.otf", weight: "500" },
+    { path: "../fonts/SeoulAlrim-Bold.otf", weight: "700" },
+    { path: "../fonts/SeoulAlrim-ExtraBold.otf", weight: "800" },
+  ],
+  variable: "--font-seoul-alrim",
+  display: "swap",
+});
+
+const memoment = localFont({
+  src: "../fonts/MemomentKkukkukk.ttf",
+  variable: "--font-memoment",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -51,7 +62,7 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body
-        className={`${outfit.variable} antialiased`}
+        className={`${seoulAlrim.variable} ${memoment.variable} antialiased`}
       >
         {children}
       </body>

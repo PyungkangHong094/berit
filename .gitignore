@@ -42,3 +42,4 @@ next-env.d.ts
 
 # Remotion (separate sub-project)
 /my-video/
+_workspace/

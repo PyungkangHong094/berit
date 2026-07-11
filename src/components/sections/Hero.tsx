@@ -1,132 +1,77 @@
-"use client";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
+import { FaithTree } from "@/components/motifs";
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { TreePine, Heart } from "lucide-react";
-import DownloadButtons from "@/components/DownloadButtons";
-
-gsap.registerPlugin(ScrollTrigger);
+// 나무 주변 손글씨 라벨 — 앱 핵심 기능명 (MemomentKkukkukk 액센트)
+const ORBIT_LABELS = [
+  { label: "말씀 묵상", className: "left-0 top-8 -rotate-6 sm:left-2 sm:top-12" },
+  { label: "함께 기도", className: "right-0 top-8 rotate-6 sm:right-2 sm:top-12" },
+  { label: "믿음 나무", className: "bottom-16 left-2 -rotate-3 sm:bottom-20 sm:left-6" },
+  { label: "동행 캘린더", className: "bottom-16 right-2 rotate-3 sm:bottom-20 sm:right-6" },
+];
 
 export default function Hero() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const cardRef = useRef<HTMLDivElement>(null);
-    const textRef = useRef<HTMLDivElement>(null);
+  return (
+    <section className="relative overflow-hidden px-5 pb-16 pt-12 sm:px-8 sm:pb-24 sm:pt-16">
+      {/* 은은한 배경 광원 — 나무 뒤 */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-16 -z-10 h-80 w-80 -translate-x-1/2 rounded-full bg-secondary/15 blur-3xl"
+      />
 
-    useEffect(() => {
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({ defaults: { ease: "power2.out" } });
-
-            tl.from(cardRef.current, {
-                scaleY: 0,
-                opacity: 0,
-                transformOrigin: "center bottom",
-                duration: 1.2,
-                ease: "power3.out",
-            })
-                .from(".hero-text-char", {
-                    y: 20,
-                    opacity: 0,
-                    stagger: 0.05,
-                    duration: 1.0,
-                }, "-=0.5")
-                .from(".hero-sub", {
-                    y: 20,
-                    opacity: 0,
-                    duration: 1.0,
-                }, "-=0.8")
-                .from(".hero-download", {
-                    y: 20,
-                    opacity: 0,
-                    duration: 0.8,
-                }, "-=0.6")
-                .from(".hero-badges", {
-                    y: 15,
-                    opacity: 0,
-                    duration: 0.8,
-                }, "-=0.5");
-
-        }, containerRef);
-
-        return () => ctx.revert();
-    }, []);
-
-    const splitText = (text: string) => {
-        return text.split("").map((char, i) => (
-            <span key={i} className="hero-text-char inline-block">
-                {char === " " ? "\u00A0" : char}
+      <div className="mx-auto flex max-w-3xl flex-col items-center text-center">
+        {/* 중앙 일러스트: 믿음 나무 + 손글씨 기능 라벨 */}
+        <div className="relative mb-8 flex h-64 w-full max-w-[360px] items-center justify-center sm:mb-10 sm:h-80">
+          <FaithTree className="h-full w-auto" />
+          {ORBIT_LABELS.map((item) => (
+            <span
+              key={item.label}
+              aria-hidden="true"
+              className={`font-hand absolute text-base text-primary sm:text-xl ${item.className}`}
+            >
+              {item.label}
             </span>
-        ));
-    };
+          ))}
+        </div>
 
-    return (
-        <section
-            ref={containerRef}
-            className="relative min-h-screen w-full flex flex-col items-center justify-center pt-20 overflow-hidden"
-        >
-            {/* Subtle background decorations */}
-            <div className="absolute top-20 left-10 w-64 h-64 bg-secondary/10 rounded-full blur-3xl" />
-            <div className="absolute bottom-20 right-10 w-80 h-80 bg-growth/10 rounded-full blur-3xl" />
+        <p className="font-hand mb-2 text-2xl text-primary sm:text-3xl">
+          &lsquo;언약&rsquo;을 뜻하는 히브리어, 베리트
+        </p>
 
-            <div className="relative z-10 container mx-auto px-6 flex flex-col items-center">
-                {/* Card Component */}
-                <div
-                    ref={cardRef}
-                    className="w-full max-w-sm bg-white aspect-[3/4] rounded-3xl shadow-2xl mb-12 p-8 flex flex-col justify-center items-center text-center border border-stone-100 relative overflow-hidden"
-                >
-                    <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-secondary/40 via-accent/30 to-primary/20" />
+        <h1 className="text-3xl font-extrabold leading-[1.15] tracking-[-0.01em] text-ink break-keep sm:text-5xl">
+          사랑하는 사람과 매일
+          <br className="hidden sm:block" />{" "}
+          <span className="marker-highlight whitespace-nowrap text-ink">
+            기도로 연결
+          </span>
+          됩니다
+        </h1>
 
-                    {/* Tree icon */}
-                    <div className="w-16 h-16 bg-growth/20 rounded-full flex items-center justify-center mb-6">
-                        <TreePine size={32} className="text-growth" />
-                    </div>
+        <p className="mt-6 max-w-prose text-base leading-relaxed text-foreground break-keep sm:text-lg">
+          커플·부부·믿음의 벗이 함께 말씀을 묵상하고 기도하도록 돕는 앱입니다.
+          매일의 기도로 믿음 나무를 키우며 서로의 여정을 함께 걸어가세요.
+        </p>
 
-                    <span className="text-xs text-gray-400 mb-4 font-medium tracking-widest uppercase">Covenant</span>
-
-                    <h3 className="text-xl md:text-2xl font-serif text-foreground leading-relaxed mb-6">
-                        &quot;나는 그들의 하나님이 되고<br />
-                        그들은 내 백성이<br />
-                        될 것이라&quot;
-                    </h3>
-
-                    <p className="text-sm text-gray-400 font-medium">예레미야 31:33</p>
-
-                    <div className="absolute bottom-8 w-12 h-1 bg-gray-200 rounded-full" />
-                </div>
-
-                {/* Text Content */}
-                <div ref={textRef} className="text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold text-foreground mb-6 leading-tight">
-                        <div className="overflow-hidden">
-                            {splitText("베리트")}
-                        </div>
-                        <div className="overflow-hidden text-primary">
-                            {splitText("하나님과의 약속")}
-                        </div>
-                    </h1>
-
-                    <p className="hero-sub text-lg md:text-xl text-foreground/70 max-w-xl mx-auto font-light leading-relaxed mb-8">
-                        매일의 기도와 묵상으로 자라나는 나의 믿음 나무.<br />
-                        하나님의 언약 안에서 참된 평안을 누리세요.
-                    </p>
-
-                    <div className="hero-download mb-8">
-                        <DownloadButtons theme="light" />
-                    </div>
-
-                    <div className="hero-badges flex flex-wrap items-center justify-center gap-3">
-                        {[
-                            { icon: TreePine, label: "성장하는 믿음 나무" },
-                            { icon: Heart, label: "함께하는 기도 동행" },
-                        ].map((badge, i) => (
-                            <div key={i} className="flex items-center gap-2 bg-white/80 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-100 text-sm text-foreground/70">
-                                <badge.icon size={16} className="text-primary" />
-                                <span>{badge.label}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
+        <div className="mt-9 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Link
+            href="/app"
+            className="group inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-8 py-3 text-base font-bold text-white transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            앱 설치하기
+            <ArrowRight
+              size={18}
+              aria-hidden="true"
+              className="transition-transform group-hover:translate-x-0.5"
+            />
+          </Link>
+          <Link
+            href="/guide"
+            className="inline-flex min-h-[48px] items-center justify-center rounded-full border-2 border-ink px-8 py-3 text-base font-bold text-ink transition-colors hover:bg-ink hover:text-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            사용 가이드 보기
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }
